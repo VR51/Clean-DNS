@@ -6,7 +6,8 @@ clear
 #	Clear DNS Caches
 #
 # Author: Lee Hodson
-# URL: https://journalxtra.com
+# URL: https://github.com/VR51/Clean-DNS
+# URL: https://journalxtra.com/linux/bash-linuxsanity/script-clean-linux-dns-cache/
 #
 #
 # How to Use
