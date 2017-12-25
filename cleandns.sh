@@ -63,11 +63,11 @@ fi
 
 ###
 #
-#	Obtain Authorisation to update the system
+#	Obtain Authorisation
 #
 ###
 
-printf "\nAuthorise System Update to update the system:\n"
+printf "\nAuthorise CleanDNS to wipe and restart your DNS caches:\n"
 sudo -v
 
 
