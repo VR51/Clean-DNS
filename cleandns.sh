@@ -3,7 +3,7 @@ clear
 
 ###
 #
-#	Clear DNS Caches
+#	Clear DNS Caches 1.0.1
 #
 # Author: Lee Hodson
 # URL: https://github.com/VR51/Clean-DNS
@@ -82,3 +82,4 @@ sudo /etc/init.d/networking force-reload
 sudo /etc/init.d/dns-clean restart
 sudo /etc/init.d/dnsmasq restart
 sudo /etc/init.d/nscd restart
+sudo systemd-resolve --flush-caches
