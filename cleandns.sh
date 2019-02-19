@@ -4,21 +4,25 @@ clear
 ###
 #
 #	Clear DNS Caches 1.0.2
+#	
+#	Does what it says on the tin: Cleans your DNS cache.
 #
-# Author: Lee Hodson
-# URL: https://github.com/VR51/Clean-DNS
-# URL: https://journalxtra.com/linux/bash-linuxsanity/script-clean-linux-dns-cache/
+#	Author: Lee Hodson
+#	URL: https://github.com/VR51/Clean-DNS
+#	URL: https://journalxtra.com/linux/bash-linuxsanity/script-clean-linux-dns-cache/
 #
+#	How to Use
 #
-# How to Use
-#
-#   Download this file (cleandns.sh).
-#   Make the script executable.
-#   Click the script to run it.
-#    Or run it from the commandline with ./cleandns.sh (you will need to be in the same directory as the script)
+#	Download this file (cleandns.sh).
+#	Make the script executable.
+#	Click the script to run it.
+#	Or run it from the commandline with ./cleandns.sh (you will need to be in the same directory as the script)
 # 
-# Script written because I got annoyed at keying in various commands to clean my DNS cache
-# whenever I changed a website's IP address.
+#	Script written because I got annoyed at keying in various commands to clean my DNS cache
+#	whenever I changed a website's IP address.
+#
+#	Try Host Flash if you want a better way to manage host files and clear your DNS cache
+#	https://github.com/VR51/host-flash
 #
 # Licence: GPL3
 #
