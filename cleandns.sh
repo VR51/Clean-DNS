@@ -3,7 +3,7 @@ clear
 
 ###
 #
-#	Clear DNS Caches 1.0.1
+#	Clear DNS Caches 1.0.2
 #
 # Author: Lee Hodson
 # URL: https://github.com/VR51/Clean-DNS
@@ -27,7 +27,7 @@ clear
 ###
 #
 #	Confirm we are running in a terminal
-#		If not, try to launch this program in a terminal
+#	If not, try to launch this program in a terminal
 #
 ###
 
@@ -63,23 +63,38 @@ fi
 
 ###
 #
-#	Obtain Authorisation
-#
-###
-
-printf "\nAuthorise CleanDNS to wipe and restart your DNS caches:\n"
-sudo -v
-
-
-###
-#
 #	Clean cache
 #
 ###
 
+function __cleandns() {
+	# Clean the DNS local servers. We try them all.. just in case.
 
-sudo /etc/init.d/networking force-reload
-sudo /etc/init.d/dns-clean restart
-sudo /etc/init.d/dnsmasq restart
-sudo /etc/init.d/nscd restart
-sudo systemd-resolve --flush-caches
+	flush=(
+	'systemd-resolve --flush-caches' # General
+	'service network-manager restart' # Debian
+	'systemctl restart network.service' # Systemd
+	'systemctl restart wicd.service' #  Systemd for WICD
+	'systemctl restart NetworkManager.service' # Fedora, Manjaro, Arch using Network Manager
+	'service nscd restart' # FreeBSD
+	'/etc/init.d/network restart' # RHEL/Centos'
+	'/etc/init.d/dns-clean restart' # Mint'
+	'/etc/init.d/nscd restart' # other
+	'/etc/init.d/networking force-reload' # Other
+	'/etc/init.d/dnsmasq restart' # Other
+	)
+
+	printf "\nAuthorise CleanDNS to wipe and restart your DNS caches:\n"
+	sudo -v
+
+	for i in "${flush[@]}"; do
+		printf "${bold}Attempting to flush DNS cache ${normal} using command: $i\n"
+		sudo $i
+		printf "Do not worry if the above says 'fail'. We only need one success.\n\n"
+	done
+
+	sudo -k
+
+}
+
+__cleandns
